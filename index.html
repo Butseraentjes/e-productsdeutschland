@@ -13,7 +13,6 @@
             --text-color: #333333;
             --light-bg: #F8F9F6;
             --white: #ffffff;
-            --header-height: 90px;
         }
 
         * {
@@ -35,106 +34,47 @@
             padding: 0 2rem;
         }
 
-        /* Banner Hero Section */
-        .banner-section {
+        /* Banner Links */
+        .banner-links {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .banner-link {
+            display: block;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .banner-link:hover {
+            transform: translateY(-5px);
+        }
+
+        .banner-image {
             width: 100%;
-            height: 600px;
-            position: relative;
-            background: url('IMAGE_FROM_BANNER') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        /* Title Section */
+        .title-section {
             text-align: center;
-            color: var(--white);
-        }
-
-        .banner-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(rgba(52, 72, 43, 0.4), rgba(52, 72, 43, 0.7));
-        }
-
-        .banner-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 2rem;
+            padding: 3rem 0;
+            background: var(--white);
         }
 
         .company-title {
             font-size: 2.5rem;
+            color: var(--primary-color);
             margin-bottom: 1rem;
-            color: var(--white);
         }
 
         .company-subtitle {
             font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: var(--white);
-        }
-
-        /* Main Content */
-        .main-content {
-            background: var(--white);
-            padding: 4rem 0;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .product-card {
-            background: var(--light-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-
-        .product-content {
-            padding: 2rem;
-        }
-
-        .product-content h3 {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        /* CTA Button */
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-            background: var(--secondary-color);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            margin-top: 2rem;
-            border: 2px solid transparent;
-        }
-
-        .cta-button:hover {
-            background: var(--primary-color);
-            transform: translateY(-2px);
+            color: var(--secondary-color);
         }
 
         /* Company Info Section */
@@ -193,10 +133,6 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .banner-section {
-                height: 500px;
-            }
-
             .company-title {
                 font-size: 2rem;
             }
@@ -206,43 +142,32 @@
             }
 
             .container {
-                padding: 0 1.5rem;
+                padding: 0 1rem;
             }
 
-            .products-grid {
-                grid-template-columns: 1fr;
+            .banner-links {
+                gap: 1rem;
             }
         }
     </style>
 </head>
 <body>
     <main>
-        <section class="banner-section">
-            <div class="banner-content">
+        <section class="title-section">
+            <div class="container">
                 <h1 class="company-title">E-Products Deutschland GmbH</h1>
                 <p class="company-subtitle">Ihr Spezialist für hochwertige Picknicktische und Gartenmöbel</p>
-                <a href="https://www.picknickbänke.de" class="cta-button">Besuchen Sie unseren Webshop</a>
             </div>
         </section>
 
-        <section class="main-content">
-            <div class="container">
-                <div class="products-grid">
-                    <div class="product-card">
-                        <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/goedkope-picknicktafel-groot.jpg?v=1732628110" alt="Premium Picknicktisch" class="product-image">
-                        <div class="product-content">
-                            <h3>Premium Picknicktische</h3>
-                            <p>Entdecken Sie unsere hochwertigen KING Picknicktische, perfekt für Ihren Garten oder Außenbereich.</p>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/K300-1-RUGL-G4-wxh-40613a87-ff4a-470c-8825-4af69e631ec0-_4_f388ddb6-cd9a-488e-a179-9b6fbd78329a.jpg?v=1706789440" alt="Gartenmöbel" class="product-image">
-                        <div class="product-content">
-                            <h3>Hochwertige Gartenmöbel</h3>
-                            <p>Qualität und Langlebigkeit für Ihren Außenbereich, made in Germany.</p>
-                        </div>
-                    </div>
-                </div>
+        <section class="container">
+            <div class="banner-links">
+                <a href="https://www.picknickbaenke.de/picknickbanke/" class="banner-link">
+                    <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/kvkrugbanner.jpg?v=1692265820" alt="Picknicktische" class="banner-image">
+                </a>
+                <a href="https://www.picknickbaenke.de/gartenbanke-king/" class="banner-link">
+                    <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/george-banner.png?v=1728636486" alt="Gartenbänke" class="banner-image">
+                </a>
             </div>
         </section>
 
