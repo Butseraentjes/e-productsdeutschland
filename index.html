@@ -26,216 +26,193 @@
             line-height: 1.6;
             color: var(--text-color);
             background: var(--light-bg);
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Header & Company Info */
-        .header {
-            padding: 2rem 0;
-            background: var(--white);
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-
-        .company-header {
+        /* Split Screen Layout */
+        .split-screen {
             display: flex;
-            align-items: center;
-            gap: 2rem;
+            min-height: 100vh;
+            position: relative;
         }
 
-        .company-logo {
-            height: 60px;
-            width: auto;
-        }
-
-        .company-title {
-            color: var(--primary-color);
-            font-size: 2rem;
-            line-height: 1.2;
-        }
-
-        /* Product Sections */
-        .products {
-            padding: 4rem 0;
-        }
-
-        .product-category {
-            margin-bottom: 4rem;
-        }
-
-        .banner-container {
-            width: 100%;
-            height: 400px;
+        .split {
+            flex: 1;
             position: relative;
             overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+            transition: flex 0.5s ease;
         }
 
-        .banner-link {
-            display: block;
-            width: 100%;
-            height: 100%;
-            position: relative;
+        .split:hover {
+            flex: 1.2;
         }
 
-        .banner-image {
+        .split-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.4);
+            color: var(--white);
+            transition: background 0.3s ease;
+        }
+
+        .split:hover .split-content {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .split-image {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
-            transition: transform 0.3s ease;
+            z-index: -1;
+            transition: transform 0.5s ease;
         }
 
-        .banner-link:hover .banner-image {
-            transform: scale(1.02);
+        .split:hover .split-image {
+            transform: scale(1.05);
         }
 
-        .category-description {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .category-description h2 {
-            color: var(--primary-color);
-            font-size: 1.8rem;
+        .split h2 {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        .category-description p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+        .split p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
-        .cta-button {
+        .split-button {
             display: inline-block;
             padding: 1rem 2rem;
-            background: var(--secondary-color);
-            color: var(--white);
+            background: var(--white);
+            color: var(--primary-color);
             text-decoration: none;
             border-radius: 6px;
             font-weight: bold;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
 
-        .cta-button:hover {
-            background: var(--primary-color);
+        .split-button:hover {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
         }
 
-        /* Footer */
+        /* Info Section */
+        .info-section {
+            padding: 4rem 2rem;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
         .footer {
             background: var(--primary-color);
             color: var(--white);
-            padding: 4rem 0;
-            margin-top: 4rem;
+            padding: 3rem 2rem;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .footer-info h3 {
             color: var(--accent-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
+            margin-bottom: 1rem;
         }
 
         .footer-info p {
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             opacity: 0.9;
         }
 
         @media (max-width: 768px) {
-            .banner-container {
-                height: 300px;
-            }
-
-            .company-header {
+            .split-screen {
                 flex-direction: column;
-                text-align: center;
-                gap: 1rem;
             }
 
-            .container {
-                padding: 0 1rem;
+            .split {
+                min-height: 60vh;
+            }
+
+            .split:hover {
+                flex: 1;
+            }
+
+            .split h2 {
+                font-size: 2rem;
+            }
+
+            .split p {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="company-header">
-                <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/kvkrugbanner.jpg?v=1692265820" alt="E-Products Deutschland Logo" class="company-logo">
-                <h1 class="company-title">E-Products Deutschland GmbH</h1>
+    <main class="split-screen">
+        <!-- Picknicktische Section -->
+        <div class="split">
+            <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/kvkrugbanner.jpg?v=1692265820" alt="KING Picknicktische" class="split-image">
+            <div class="split-content">
+                <h2>KING Picknicktische</h2>
+                <p>Hochwertige Picknicktische für Ihren Garten und Außenbereich. Robust, langlebig und perfekt für gesellige Momente.</p>
+                <a href="https://www.picknickbaenke.de/picknickbanke/" class="split-button">Picknicktische entdecken</a>
             </div>
         </div>
-    </header>
 
-    <main class="products">
-        <div class="container">
-            <!-- Picknicktische Section -->
-            <section class="product-category">
-                <div class="banner-container">
-                    <a href="https://www.picknickbaenke.de/picknickbanke/" class="banner-link">
-                        <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/kvkrugbanner.jpg?v=1692265820" alt="KING Picknicktische" class="banner-image">
-                    </a>
-                </div>
-                <div class="category-description">
-                    <h2>KING Picknicktische</h2>
-                    <p>Entdecken Sie unsere hochwertigen Picknicktische - perfekt für Ihren Garten, Terrasse oder öffentliche Einrichtungen. Gefertigt aus erstklassigem Holz und entwickelt für maximale Langlebigkeit.</p>
-                    <a href="https://www.picknickbaenke.de/picknickbanke/" class="cta-button">Picknicktische entdecken</a>
-                </div>
-            </section>
-
-            <!-- Gartenbänke Section -->
-            <section class="product-category">
-                <div class="banner-container">
-                    <a href="https://www.picknickbaenke.de/gartenbanke-king/" class="banner-link">
-                        <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/george-banner.png?v=1728636486" alt="KING Gartenbänke" class="banner-image">
-                    </a>
-                </div>
-                <div class="category-description">
-                    <h2>KING Gartenbänke</h2>
-                    <p>Stilvolle und komfortable Gartenbänke, die Ihren Außenbereich aufwerten. Mit ergonomischem Design und wetterfester Konstruktion bieten sie langanhaltenden Sitzkomfort.</p>
-                    <a href="https://www.picknickbaenke.de/gartenbanke-king/" class="cta-button">Gartenbänke entdecken</a>
-                </div>
-            </section>
+        <!-- Gartenbänke Section -->
+        <div class="split">
+            <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/george-banner.png?v=1728636486" alt="KING Gartenbänke" class="split-image">
+            <div class="split-content">
+                <h2>KING Gartenbänke</h2>
+                <p>Stilvolle Gartenbänke mit ergonomischem Design. Wetterfest, komfortabel und die perfekte Ergänzung für Ihren Außenbereich.</p>
+                <a href="https://www.picknickbaenke.de/gartenbanke-king/" class="split-button">Gartenbänke entdecken</a>
+            </div>
         </div>
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-info">
-                    <h3>Kontakt</h3>
-                    <p>E-Products Deutschland GmbH</p>
-                    <p>Hoffmannallee 41 - 51</p>
-                    <p>47533 Kleve, Deutschland</p>
-                    <p>USt-IdNr.: DE298706463</p>
-                </div>
-                <div class="footer-info">
-                    <h3>Unser Webshop</h3>
-                    <p>www.picknickbänke.de</p>
-                    <p>contact@picknickbänke.de</p>
-                </div>
-                <div class="footer-info">
-                    <h3>Bankverbindung</h3>
-                    <p>Sparkasse Rhein-Maas</p>
-                    <p>IBAN: DE45 3245 0000 0000 1536 76</p>
-                    <p>BIC: WELADED1KLE</p>
-                </div>
+        <div class="footer-grid">
+            <div class="footer-info">
+                <h3>E-Products Deutschland GmbH</h3>
+                <p>Hoffmannallee 41 - 51</p>
+                <p>47533 Kleve, Deutschland</p>
+                <p>USt-IdNr.: DE298706463</p>
+            </div>
+            <div class="footer-info">
+                <h3>Kontakt</h3>
+                <p>www.picknickbänke.de</p>
+                <p>contact@picknickbänke.de</p>
+            </div>
+            <div class="footer-info">
+                <h3>Bankverbindung</h3>
+                <p>Sparkasse Rhein-Maas</p>
+                <p>IBAN: DE45 3245 0000 0000 1536 76</p>
+                <p>BIC: WELADED1KLE</p>
             </div>
         </div>
     </footer>
