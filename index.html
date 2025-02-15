@@ -32,8 +32,10 @@
         /* Split Screen Layout */
         .split-screen {
             display: flex;
+            height: auto;
             min-height: 100vh;
             position: relative;
+            background: var(--primary-color);
         }
 
         .split {
@@ -41,41 +43,25 @@
             position: relative;
             overflow: hidden;
             transition: flex 0.5s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .split:hover {
             flex: 1.2;
         }
 
-        .split-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 2rem;
-            background: rgba(0, 0, 0, 0.4);
-            color: var(--white);
-            transition: background 0.3s ease;
-        }
-
-        .split:hover .split-content {
-            background: rgba(0, 0, 0, 0.2);
+        .split-image-container {
+            height: 500px;
+            overflow: hidden;
+            position: relative;
         }
 
         .split-image {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: -1;
+            object-position: center;
             transition: transform 0.5s ease;
         }
 
@@ -83,24 +69,35 @@
             transform: scale(1.05);
         }
 
+        .split-content {
+            padding: 3rem 2rem;
+            text-align: center;
+            background: var(--white);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
         .split h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: var(--primary-color);
         }
 
         .split p {
             font-size: 1.2rem;
             max-width: 600px;
             margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            color: var(--text-color);
         }
 
         .split-button {
             display: inline-block;
             padding: 1rem 2rem;
-            background: var(--white);
-            color: var(--primary-color);
+            background: var(--primary-color);
+            color: var(--white);
             text-decoration: none;
             border-radius: 6px;
             font-weight: bold;
@@ -109,9 +106,8 @@
         }
 
         .split-button:hover {
-            background: transparent;
-            color: var(--white);
-            border-color: var(--white);
+            background: var(--secondary-color);
+            transform: translateY(-2px);
         }
 
         /* Info Section */
@@ -176,7 +172,9 @@
     <main class="split-screen">
         <!-- Picknicktische Section -->
         <div class="split">
-            <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/kvkxxlrugleuningen.jpg?v=1732015893" alt="KING Picknicktische" class="split-image">
+            <div class="split-image-container">
+                <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/kvkxxlrugleuningen.jpg?v=1732015893" alt="KING Picknicktische" class="split-image">
+            </div>
             <div class="split-content">
                 <h2>KING Picknicktische</h2>
                 <p>Hochwertige Picknicktische für Ihren Garten und Außenbereich. Robust, langlebig und perfekt für gesellige Momente.</p>
@@ -186,7 +184,9 @@
 
         <!-- Gartenbänke Section -->
         <div class="split">
-            <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/tb-george-3.jpg?v=1706530106" alt="KING Gartenbänke" class="split-image">
+            <div class="split-image-container">
+                <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/tb-george-3.jpg?v=1706530106" alt="KING Gartenbänke" class="split-image">
+            </div>
             <div class="split-content">
                 <h2>KING Gartenbänke</h2>
                 <p>Stilvolle Gartenbänke mit ergonomischem Design. Wetterfest, komfortabel und die perfekte Ergänzung für Ihren Außenbereich.</p>
