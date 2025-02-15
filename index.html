@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="E-Products Deutschland GmbH - Ihr Spezialist für hochwertige Picknicktische und Gartenmöbel. Besuchen Sie unseren Webshop Picknickbänke.de">
+    <meta name="description" content="E-Products Deutschland GmbH - Ihr Spezialist für hochwertige Picknicktische und Gartenmöbel">
     <title>E-Products Deutschland GmbH | Qualität & Service</title>
     <style>
         :root {
-            --primary-color: #2F4538;
-            --secondary-color: #4A6741;
-            --accent-color: #86A77C;
+            --primary-color: #34482B;
+            --secondary-color: #5B7346;
+            --accent-color: #8B9D77;
             --text-color: #333333;
-            --light-bg: #F5F7F5;
+            --light-bg: #F8F9F6;
             --white: #ffffff;
+            --header-height: 90px;
         }
 
         * {
@@ -29,137 +30,72 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* Header */
-        .header {
-            background: var(--white);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
             padding: 0 2rem;
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-image {
-            height: 60px;
-            margin-right: 1rem;
-        }
-
-        .logo-text {
-            color: var(--primary-color);
-            font-size: 1.25rem;
-            font-weight: bold;
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
+        /* Banner Hero Section */
+        .banner-section {
+            width: 100%;
             height: 600px;
-            background: url('https://cdn.shopify.com/s/files/1/0770/4697/2750/files/goedkope-picknicktafel-groot.jpg?v=1732628110') center/cover;
-            margin-top: 80px;
+            position: relative;
+            background: url('IMAGE_FROM_BANNER') center/cover no-repeat;
             display: flex;
             align-items: center;
+            justify-content: center;
             text-align: center;
+            color: var(--white);
         }
 
-        .hero::before {
+        .banner-section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(47, 69, 56, 0.7);
+            background: linear-gradient(rgba(52, 72, 43, 0.4), rgba(52, 72, 43, 0.7));
         }
 
-        .hero-content {
+        .banner-content {
             position: relative;
-            z-index: 1;
-            color: var(--white);
-            width: 100%;
+            z-index: 2;
+            max-width: 800px;
             padding: 2rem;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* CTA Button */
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--accent-color);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .cta-button:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-
-        /* Products Section */
-        .products {
-            padding: 5rem 0;
-            background: var(--white);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--primary-color);
-        }
-
-        .section-title h2 {
+        .company-title {
             font-size: 2.5rem;
             margin-bottom: 1rem;
+            color: var(--white);
         }
 
-        .product-grid {
+        .company-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--white);
+        }
+
+        /* Main Content */
+        .main-content {
+            background: var(--white);
+            padding: 4rem 0;
+        }
+
+        .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-            padding: 0 2rem;
+            gap: 3rem;
+            margin-top: 3rem;
         }
 
         .product-card {
-            border-radius: 8px;
+            background: var(--light-bg);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
-            background: var(--white);
         }
 
         .product-card:hover {
@@ -173,18 +109,38 @@
         }
 
         .product-content {
-            padding: 1.5rem;
+            padding: 2rem;
         }
 
         .product-content h3 {
             color: var(--primary-color);
-            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        /* Company Info */
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            background: var(--secondary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            border: 2px solid transparent;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Company Info Section */
         .company-info {
-            padding: 5rem 0;
             background: var(--light-bg);
+            padding: 5rem 0;
         }
 
         .info-grid {
@@ -195,119 +151,121 @@
 
         .info-card {
             background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .info-card h3 {
             color: var(--primary-color);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .info-card p {
+            margin-bottom: 0.75rem;
+            color: var(--text-color);
         }
 
         /* Footer */
         .footer {
             background: var(--primary-color);
             color: var(--white);
-            padding: 3rem 0;
+            padding: 4rem 0;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 3rem;
         }
 
         .footer-info h3 {
             color: var(--accent-color);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
         }
 
         .footer-info p {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             opacity: 0.9;
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .hero h1 {
+            .banner-section {
+                height: 500px;
+            }
+
+            .company-title {
                 font-size: 2rem;
             }
-            
-            .hero p {
+
+            .company-subtitle {
                 font-size: 1.25rem;
             }
 
-            .product-grid {
-                grid-template-columns: 1fr;
+            .container {
+                padding: 0 1.5rem;
             }
 
-            .container {
-                padding: 0 1rem;
+            .products-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <nav class="nav">
-            <div class="logo-container">
-                <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/kvkrugbanner.jpg?v=1692265820" alt="E-Products Deutschland Logo" class="logo-image">
-                <span class="logo-text">E-Products Deutschland GmbH</span>
+    <main>
+        <section class="banner-section">
+            <div class="banner-content">
+                <h1 class="company-title">E-Products Deutschland GmbH</h1>
+                <p class="company-subtitle">Ihr Spezialist für hochwertige Picknicktische und Gartenmöbel</p>
+                <a href="https://www.picknickbänke.de" class="cta-button">Besuchen Sie unseren Webshop</a>
             </div>
-        </nav>
-    </header>
+        </section>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Willkommen bei E-Products Deutschland GmbH</h1>
-            <p>Ihr Spezialist für hochwertige Picknicktische und Gartenmöbel</p>
-            <a href="https://www.picknickbänke.de" class="cta-button">Besuchen Sie unseren Webshop</a>
-        </div>
-    </section>
-
-    <section class="products">
-        <div class="container">
-            <div class="section-title">
-                <h2>Unsere Produkte auf Picknickbänke.de</h2>
-            </div>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/goedkope-picknicktafel-groot.jpg?v=1732628110" alt="Premium Picknicktisch" class="product-image">
-                    <div class="product-content">
-                        <h3>Premium Picknicktische</h3>
-                        <p>Entdecken Sie unsere hochwertigen KING Picknicktische für Ihren Garten</p>
+        <section class="main-content">
+            <div class="container">
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/goedkope-picknicktafel-groot.jpg?v=1732628110" alt="Premium Picknicktisch" class="product-image">
+                        <div class="product-content">
+                            <h3>Premium Picknicktische</h3>
+                            <p>Entdecken Sie unsere hochwertigen KING Picknicktische, perfekt für Ihren Garten oder Außenbereich.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="product-card">
-                    <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/K300-1-RUGL-G4-wxh-40613a87-ff4a-470c-8825-4af69e631ec0-_4_f388ddb6-cd9a-488e-a179-9b6fbd78329a.jpg?v=1706789440" alt="Gartenmöbel" class="product-image">
-                    <div class="product-content">
-                        <h3>Hochwertige Gartenmöbel</h3>
-                        <p>Qualität und Langlebigkeit für Ihren Außenbereich</p>
+                    <div class="product-card">
+                        <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/K300-1-RUGL-G4-wxh-40613a87-ff4a-470c-8825-4af69e631ec0-_4_f388ddb6-cd9a-488e-a179-9b6fbd78329a.jpg?v=1706789440" alt="Gartenmöbel" class="product-image">
+                        <div class="product-content">
+                            <h3>Hochwertige Gartenmöbel</h3>
+                            <p>Qualität und Langlebigkeit für Ihren Außenbereich, made in Germany.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="company-info">
-        <div class="container">
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>Unternehmensinformationen</h3>
-                    <p>E-Products Deutschland GmbH</p>
-                    <p>Hoffmannallee 41 - 51</p>
-                    <p>47533 Kleve, Deutschland</p>
-                    <p>USt-IdNr.: DE298706463</p>
-                </div>
-                <div class="info-card">
-                    <h3>Unser Webshop</h3>
-                    <p>Besuchen Sie uns auf:</p>
-                    <p><a href="https://www.picknickbänke.de" style="color: var(--secondary-color);">www.picknickbänke.de</a></p>
-                    <p>E-Mail: contact@picknickbänke.de</p>
+        <section class="company-info">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Unternehmensinformationen</h3>
+                        <p>E-Products Deutschland GmbH</p>
+                        <p>Hoffmannallee 41 - 51</p>
+                        <p>47533 Kleve, Deutschland</p>
+                        <p>USt-IdNr.: DE298706463</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Unser Webshop</h3>
+                        <p>Besuchen Sie uns auf:</p>
+                        <p><a href="https://www.picknickbänke.de" style="color: var(--secondary-color);">www.picknickbänke.de</a></p>
+                        <p>E-Mail: contact@picknickbänke.de</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer class="footer">
         <div class="container">
