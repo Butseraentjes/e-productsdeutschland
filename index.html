@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="E-Products Deutschland GmbH - Ihr Spezialist für hochwertige Picknicktische und Gartenmöbel">
+    <meta name="description" content="E-Products Deutschland GmbH - Ihr Spezialist für hochwertige KING Picknicktische und Gartenbänke">
     <title>E-Products Deutschland GmbH | Qualität & Service</title>
     <style>
         :root {
@@ -34,24 +34,54 @@
             padding: 0 2rem;
         }
 
-        /* Banner Sections */
-        .product-section {
+        /* Header & Company Info */
+        .header {
+            padding: 2rem 0;
+            background: var(--white);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .company-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .company-logo {
+            height: 60px;
+            width: auto;
+        }
+
+        .company-title {
+            color: var(--primary-color);
+            font-size: 2rem;
+            line-height: 1.2;
+        }
+
+        /* Product Sections */
+        .products {
+            padding: 4rem 0;
+        }
+
+        .product-category {
             margin-bottom: 4rem;
         }
 
         .banner-container {
             width: 100%;
-            height: 300px; /* Vaste hoogte voor beide banners */
-            margin-bottom: 2rem;
+            height: 400px;
             position: relative;
             overflow: hidden;
-            border-radius: 8px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
         }
 
         .banner-link {
             display: block;
             width: 100%;
             height: 100%;
+            position: relative;
         }
 
         .banner-image {
@@ -66,115 +96,39 @@
             transform: scale(1.02);
         }
 
-        .category-info {
+        .category-description {
             background: var(--white);
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            margin-bottom: 4rem;
-        }
-
-        /* Title Section */
-        .title-section {
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
-            padding: 3rem 0;
-            background: var(--white);
         }
 
-        .company-title {
-            font-size: 2.5rem;
+        .category-description h2 {
             color: var(--primary-color);
+            font-size: 1.8rem;
             margin-bottom: 1rem;
         }
 
-        .company-subtitle {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-        }
-
-        /* Company Info Section */
-        .company-info {
-            background: var(--light-bg);
-            padding: 5rem 0;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .info-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .info-card h3 {
-            color: var(--primary-color);
+        .category-description p {
             margin-bottom: 1.5rem;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
         }
 
-        .info-card p {
-            margin-bottom: 0.75rem;
-            color: var(--text-color);
-        }
-
-        /* Product Categories */
-        .product-categories {
-            padding: 5rem 0;
-            background: var(--white);
-        }
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-
-        .category-info {
-            padding: 2rem;
-            background: var(--light-bg);
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .category-info h2 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-        }
-
-        .category-info p {
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .category-info ul {
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
-        }
-
-        .category-info li {
-            margin-bottom: 0.75rem;
-            color: var(--text-color);
-        }
-
-        .category-link {
+        .cta-button {
             display: inline-block;
-            color: var(--primary-color);
+            padding: 1rem 2rem;
+            background: var(--secondary-color);
+            color: var(--white);
             text-decoration: none;
+            border-radius: 6px;
             font-weight: bold;
-            padding: 0.5rem 0;
-            border-bottom: 2px solid var(--accent-color);
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease;
         }
 
-        .category-link:hover {
-            color: var(--secondary-color);
-            border-bottom-color: var(--secondary-color);
+        .cta-button:hover {
+            background: var(--primary-color);
         }
 
         /* Footer */
@@ -182,6 +136,7 @@
             background: var(--primary-color);
             color: var(--white);
             padding: 4rem 0;
+            margin-top: 4rem;
         }
 
         .footer-grid {
@@ -201,125 +156,63 @@
             opacity: 0.9;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
-            .company-title {
-                font-size: 2rem;
+            .banner-container {
+                height: 300px;
             }
 
-            .company-subtitle {
-                font-size: 1.25rem;
+            .company-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
             }
 
             .container {
                 padding: 0 1rem;
             }
-
-            .banner-links {
-                gap: 1rem;
-            }
         }
     </style>
 </head>
 <body>
-    <main>
-        <section class="title-section">
-            <div class="container">
+    <header class="header">
+        <div class="container">
+            <div class="company-header">
+                <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/kvkrugbanner.jpg?v=1692265820" alt="E-Products Deutschland Logo" class="company-logo">
                 <h1 class="company-title">E-Products Deutschland GmbH</h1>
-                <p class="company-subtitle">Ihr Spezialist für hochwertige Picknicktische und Gartenmöbel</p>
             </div>
-        </section>
+        </div>
+    </header>
 
-        <section class="container">
+    <main class="products">
+        <div class="container">
             <!-- Picknicktische Section -->
-            <div class="product-section">
+            <section class="product-category">
                 <div class="banner-container">
                     <a href="https://www.picknickbaenke.de/picknickbanke/" class="banner-link">
-                        <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/kvkrugbanner.jpg?v=1692265820" alt="Picknicktische" class="banner-image">
+                        <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/kvkrugbanner.jpg?v=1692265820" alt="KING Picknicktische" class="banner-image">
                     </a>
                 </div>
-                <div class="category-info">
+                <div class="category-description">
                     <h2>KING Picknicktische</h2>
-                    <p>Unsere robusten KING Picknicktische sind die perfekte Wahl für Ihren Garten, Terrasse oder öffentliche Einrichtungen. Gefertigt aus hochwertigem, witterungsbeständigem Holz, bieten sie:</p>
-                    <ul>
-                        <li>Hohe Belastbarkeit und Langlebigkeit</li>
-                        <li>Einfache Montage und Wartung</li>
-                        <li>Verschiedene Größen für 4-12 Personen</li>
-                        <li>Optimales Preis-Leistungs-Verhältnis</li>
-                    </ul>
-                    <a href="https://www.picknickbaenke.de/picknickbanke/" class="category-link">Entdecken Sie unsere Picknicktische →</a>
+                    <p>Entdecken Sie unsere hochwertigen Picknicktische - perfekt für Ihren Garten, Terrasse oder öffentliche Einrichtungen. Gefertigt aus erstklassigem Holz und entwickelt für maximale Langlebigkeit.</p>
+                    <a href="https://www.picknickbaenke.de/picknickbanke/" class="cta-button">Picknicktische entdecken</a>
                 </div>
-            </div>
+            </section>
 
             <!-- Gartenbänke Section -->
-            <div class="product-section">
+            <section class="product-category">
                 <div class="banner-container">
                     <a href="https://www.picknickbaenke.de/gartenbanke-king/" class="banner-link">
-                        <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/george-banner.png?v=1728636486" alt="Gartenbänke" class="banner-image">
+                        <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/george-banner.png?v=1728636486" alt="KING Gartenbänke" class="banner-image">
                     </a>
                 </div>
-                <div class="category-info">
+                <div class="category-description">
                     <h2>KING Gartenbänke</h2>
-                    <p>Die KING Gartenbänke sind die ideale Ergänzung für jeden Außenbereich. Diese hochwertigen Sitzmöbel zeichnen sich aus durch:</p>
-                    <ul>
-                        <li>Ergonomisches Design für hohen Sitzkomfort</li>
-                        <li>Wetterfeste Konstruktion</li>
-                        <li>Verschiedene Modelle und Ausführungen</li>
-                        <li>Nachhaltige Materialien</li>
-                    </ul>
-                    <a href="https://www.picknickbaenke.de/gartenbanke-king/" class="category-link">Entdecken Sie unsere Gartenbänke →</a>
+                    <p>Stilvolle und komfortable Gartenbänke, die Ihren Außenbereich aufwerten. Mit ergonomischem Design und wetterfester Konstruktion bieten sie langanhaltenden Sitzkomfort.</p>
+                    <a href="https://www.picknickbaenke.de/gartenbanke-king/" class="cta-button">Gartenbänke entdecken</a>
                 </div>
-            </div>
-        </section>
-
-        <section class="product-categories">
-            <div class="container">
-                <div class="category-grid">
-                    <div class="category-info">
-                        <h2>KING Picknicktische</h2>
-                        <p>Unsere robusten KING Picknicktische sind die perfekte Wahl für Ihren Garten, Terrasse oder öffentliche Einrichtungen. Gefertigt aus hochwertigem, witterungsbeständigem Holz, bieten sie:</p>
-                        <ul>
-                            <li>Hohe Belastbarkeit und Langlebigkeit</li>
-                            <li>Einfache Montage und Wartung</li>
-                            <li>Verschiedene Größen für 4-12 Personen</li>
-                            <li>Optimales Preis-Leistungs-Verhältnis</li>
-                        </ul>
-                        <a href="https://www.picknickbaenke.de/picknickbanke/" class="category-link">Entdecken Sie unsere Picknicktische</a>
-                    </div>
-                    <div class="category-info">
-                        <h2>KING Gartenbänke</h2>
-                        <p>Die KING Gartenbänke sind die ideale Ergänzung für jeden Außenbereich. Diese hochwertigen Sitzmöbel zeichnen sich aus durch:</p>
-                        <ul>
-                            <li>Ergonomisches Design für hohen Sitzkomfort</li>
-                            <li>Wetterfeste Konstruktion</li>
-                            <li>Verschiedene Modelle und Ausführungen</li>
-                            <li>Nachhaltige Materialien</li>
-                        </ul>
-                        <a href="https://www.picknickbaenke.de/gartenbanke-king/" class="category-link">Entdecken Sie unsere Gartenbänke</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="company-info">
-            <div class="container">
-                <div class="info-grid">
-                    <div class="info-card">
-                        <h3>Unternehmensinformationen</h3>
-                        <p>E-Products Deutschland GmbH</p>
-                        <p>Hoffmannallee 41 - 51</p>
-                        <p>47533 Kleve, Deutschland</p>
-                        <p>USt-IdNr.: DE298706463</p>
-                    </div>
-                    <div class="info-card">
-                        <h3>Unser Webshop</h3>
-                        <p>Besuchen Sie uns auf:</p>
-                        <p><a href="https://www.picknickbänke.de" style="color: var(--secondary-color);">www.picknickbänke.de</a></p>
-                        <p>E-Mail: contact@picknickbänke.de</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 
     <footer class="footer">
@@ -328,18 +221,20 @@
                 <div class="footer-info">
                     <h3>Kontakt</h3>
                     <p>E-Products Deutschland GmbH</p>
-                    <p>Handelsregister: HRB 13211</p>
+                    <p>Hoffmannallee 41 - 51</p>
+                    <p>47533 Kleve, Deutschland</p>
+                    <p>USt-IdNr.: DE298706463</p>
+                </div>
+                <div class="footer-info">
+                    <h3>Unser Webshop</h3>
+                    <p>www.picknickbänke.de</p>
+                    <p>contact@picknickbänke.de</p>
                 </div>
                 <div class="footer-info">
                     <h3>Bankverbindung</h3>
                     <p>Sparkasse Rhein-Maas</p>
                     <p>IBAN: DE45 3245 0000 0000 1536 76</p>
                     <p>BIC: WELADED1KLE</p>
-                </div>
-                <div class="footer-info">
-                    <h3>Rechtliches</h3>
-                    <p>© 2025 E-Products Deutschland GmbH</p>
-                    <p>Alle Rechte vorbehalten</p>
                 </div>
             </div>
         </div>
