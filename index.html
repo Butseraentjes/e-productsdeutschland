@@ -145,6 +145,17 @@
             opacity: 0.9;
         }
 
+        .footer-info a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-info a:hover {
+            opacity: 1;
+        }
+
         @media (max-width: 768px) {
             .split-screen {
                 flex-direction: column;
@@ -205,8 +216,8 @@
             </div>
             <div class="footer-info">
                 <h3>Kontakt</h3>
-                <p>www.picknickbänke.de</p>
-                <p>contact@picknickbänke.de</p>
+                <p><a href="https://www.picknickbaenke.de" target="_blank">www.picknickbänke.de</a></p>
+                <p><a href="mailto:contact@picknickbänke.de">contact@picknickbänke.de</a></p>
             </div>
             <div class="footer-info">
                 <h3>Bankverbindung</h3>
